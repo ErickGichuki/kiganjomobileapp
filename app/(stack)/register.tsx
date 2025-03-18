@@ -1,5 +1,6 @@
 import { View, Text, SafeAreaView, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { Link } from 'expo-router'
 
 const Register = () => {
     
@@ -40,7 +41,8 @@ const Register = () => {
         <View style={styles.loginContainer}>
           <Text>Already have an account? </Text>
           <TouchableOpacity>
-            <Text style={styles.loginText}>Login</Text>
+            {/* <Link href=""style={styles.loginText}>Login</Link> */}
+            < Link href='/(tabs)/login'style={styles.loginText}> Login</Link>
           </TouchableOpacity>
         </View>
       </View>
