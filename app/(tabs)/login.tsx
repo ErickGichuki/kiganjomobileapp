@@ -1,4 +1,4 @@
-import { SafeAreaView, Image, Text, View, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import { SafeAreaView, Image, Text, View, TextInput, TouchableOpacity, StyleSheet, Switch } from 'react-native'
 import React, { useState } from 'react'
 import { Link, useRouter } from 'expo-router';
 import AsyncStorage from "@react-native-async-storage/async-storage"
@@ -9,6 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const [see, setSee] = useState(false);
 
   const handleLogin = async () => {
     try {
@@ -58,13 +59,22 @@ const Login = () => {
           placeholder="Enter your password"
           value={password}
           onChangeText={setPassword}
-          secureTextEntry
+          secureTextEntry={!see}
           style={styles.input}
         />
 
         <TouchableOpacity className="self-end mb-4">
           <Text className="text-blue-600">Forgot your password?</Text>
         </TouchableOpacity>
+        <View style={styles.switchContainer}>
+          <Switch
+            value={see}
+            onValueChange={() => setSee(!see)}
+            trackColor={{ false: "#ccc", true: "#3b82f6"}}
+            thumbColor={see ? "#fff" : "#f4f4f4"}
+          />
+          <Text style={styles.switchText}>Show Password</Text>
+        </View>
 
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
           <Text className="text-white text-center font-semibold">Login</Text>
@@ -98,6 +108,16 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     fontSize: 16,
     marginBottom: 12,
+  },
+  switchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  switchText: {
+    fontSize: 14,
+    color: "#4b5563",
+    marginLeft: 8,
   },
   loginButton: {
     backgroundColor: '#124FDC',
