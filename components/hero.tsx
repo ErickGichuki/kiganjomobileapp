@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   circle2: {
     width: 100,
     height: 100,
-    backgroundColor: "#E1F5FE",
+    backgroundColor: "#B1F5FE",
     borderRadius: 50,
     position: "absolute",
     top: -50,
