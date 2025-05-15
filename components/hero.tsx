@@ -25,7 +25,7 @@ const Hero = () => {
         <ScrollView contentContainerStyle={styles.scrollView}>
           <Text style={styles.title}>Welcome to SDA Kiganjo Church Choir</Text>
 
-          <Image source={require("../assets/images/musicb.png")} style={styles.musicPlayer} />
+          <Image source={require("../assets/images/musicbb.png")} style={styles.musicPlayer} />
 
           <Text style={styles.message}>
             Sing with the spirit and understanding. {"\n"}
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     height: 300,
     resizeMode: "contain",
     marginBottom: 15,
+    borderRadius:20,
   },
   message: {
     textAlign: "center",
